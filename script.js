@@ -1,197 +1,108 @@
 
 document.addEventListener("DOMContentLoaded", function () {
-  const get = (id) => document.getElementById(id);
+  const get = id => document.getElementById(id);
 
-  // Museum entrance
   const intro = get("intro");
   const museum = get("museum");
   const enterButton = get("enter-museum");
 
   if (enterButton && intro && museum) {
+    enterButton.onclick = function () {
+      museum.classList.add("ready");
+      intro.classList.add("leaving");
 
+      const music = get("background-music");
+      if (music) {
+        music.volume = 0.6;
+        music.play().catch(() => {});
+      }
 
-enterButton.addEventListener("click", function () {
-  museum.classList.add("ready");
-  intro.classList.add("leaving");
-
-  const music = document.getElementById("background-music");
-
-  if (music) {
-    music.volume = 0.6;
-    music.play().catch(function () {});
-  }
-
-  setTimeout(function () {
-    intro.style.display = "none";
-  }, 1200);
-});
-
-  museum.classList.add("ready");
-  intro.classList.add("leaving");
-
-  const music = document.getElementById("background-music");
-
-  if (music) {
-    music.volume = 0.6;
-    music.play().catch(function () {
-      console.log("Music needs another tap to start.");
-    });
-
-    const musicToggle = document.getElementById("music-toggle");
-    if (musicToggle) {
-      musicToggle.textContent = "♫ Music On";
-      musicToggle.setAttribute("aria-pressed", "true");
-    }
-  }
-
-  setTimeout(function () {
-    intro.style.display = "none";
-  }, 1200);
-});
-
-
-      setTimeout(function () {
+      setTimeout(() => {
         intro.style.display = "none";
       }, 1200);
-    });
+    };
   }
 
-  // Live dating timer: 19 April 2026
   function updateTimer() {
     const start = new Date("2026-04-19T00:00:00").getTime();
     const diff = Math.max(0, Date.now() - start);
 
     const values = {
       days: Math.floor(diff / 86400000),
-      hours: Math.floor((diff % 86400000) / 3600000),
-      minutes: Math.floor((diff % 3600000) / 60000),
-      seconds: Math.floor((diff % 60000) / 1000)
+      hours: Math.floor(diff / 3600000) % 24,
+      minutes: Math.floor(diff / 60000) % 60,
+      seconds: Math.floor(diff / 1000) % 60
     };
 
-    Object.entries(values).forEach(function ([id, value]) {
+    Object.entries(values).forEach(([id, value]) => {
       const el = get(id);
-      if (el) {
-        el.textContent = id === "days"
-          ? value
-          : String(value).padStart(2, "0");
-      }
+      if (el) el.textContent =
+        id === "days" ? value : String(value).padStart(2, "0");
     });
   }
 
   updateTimer();
   setInterval(updateTimer, 1000);
 
-  // Background music
   const music = get("background-music");
   const musicToggle = get("music-toggle");
 
-  if (music && musicToggle) {
-    musicToggle.addEventListener("click", async function () {
+  if (musicToggle && music) {
+    musicToggle.onclick = async function () {
       if (music.paused) {
         try {
           await music.play();
           musicToggle.textContent = "♫ Music On";
-          musicToggle.setAttribute("aria-pressed", "true");
-        } catch (error) {
-          alert("Add a valid music.mp3 file to your GitHub repository first.");
+        } catch (e) {
+          alert("Please check that music.mp3 is uploaded to your repository.");
         }
       } else {
         music.pause();
         musicToggle.textContent = "♫ Music Off";
-        musicToggle.setAttribute("aria-pressed", "false");
       }
-    });
+    };
   }
 
-  // Love letter
   const letterButton = get("open-letter");
-  const letterContent = get("letter-content");
+  const letter = get("letter-content");
 
-  if (letterButton && letterContent) {
-    letterButton.addEventListener("click", function () {
-      const opening = letterContent.hidden;
-      letterContent.hidden = !opening;
-      letterButton.textContent = opening
-        ? "Close My Letter"
-        : "Open My Letter";
-    });
+  if (letterButton && letter) {
+    letterButton.onclick = function () {
+      letter.hidden = !letter.hidden;
+    };
   }
 
-  // Final photograph reveal
   const revealButton = get("reveal-button");
-  const revealContent = get("reveal-content");
+  const reveal = get("reveal-content");
 
-  if (revealButton && revealContent) {
-    revealButton.addEventListener("click", function () {
-      const opening = revealContent.hidden;
-      revealContent.hidden = !opening;
-      revealButton.textContent = opening
-        ? "Keep This Moment Close ♥"
-        : "Reveal Our Moment ♥";
-
-      if (opening) {
-        revealContent.scrollIntoView({
-          behavior: "smooth",
-          block: "center"
-        });
+  if (revealButton && reveal) {
+    revealButton.onclick = function () {
+      reveal.hidden = !reveal.hidden;
+      if (!reveal.hidden) {
+        reveal.scrollIntoView({ behavior: "smooth", block: "center" });
       }
-    });
+    };
   }
 
-  // Memory exhibit pop-up
   const dialog = get("memory-dialog");
-  const dialogTitle = get("dialog-title");
-  const dialogMessage = get("dialog-message");
-  const closeMemory = get("close-memory");
+  const closeButton = get("close-memory");
 
-  document.querySelectorAll(".memory-card").forEach(function (card) {
-    card.addEventListener("click", function () {
-      if (dialog && dialogTitle && dialogMessage) {
-        dialogTitle.textContent = card.dataset.title || "A Beautiful Memory";
-        dialogMessage.textContent = card.dataset.message || "";
-        if (typeof dialog.showModal === "function") {
-          dialog.showModal();
-        } else {
-          alert(
-            dialogTitle.textContent + "\n\n" +
-            dialogMessage.textContent
-          );
-        }
-      }
-    });
+  document.querySelectorAll(".memory-card").forEach(card => {
+    card.onclick = function () {
+      if (!dialog) return;
+      const title = get("dialog-title");
+      const message = get("dialog-message");
+      if (title) title.textContent = card.dataset.title || "A Beautiful Memory";
+      if (message) message.textContent = card.dataset.message || "";
+      if (dialog.showModal) dialog.showModal();
+    };
   });
 
-  if (closeMemory && dialog) {
-    closeMemory.addEventListener("click", function () {
-      dialog.close();
-    });
+  if (closeButton && dialog) {
+    closeButton.onclick = () => dialog.close();
   }
 
-  if (dialog) {
-    dialog.addEventListener("click", function (event) {
-      if (event.target === dialog) dialog.close();
-    });
-  }
-
-  // Reveal sections as visitors scroll
-  const sections = document.querySelectorAll(".reveal");
-
-  if ("IntersectionObserver" in window) {
-    const observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
-
-    sections.forEach(function (section) {
-      observer.observe(section);
-    });
-  } else {
-    sections.forEach(function (section) {
-      section.classList.add("visible");
-    });
-  }
+  document.querySelectorAll(".reveal").forEach(section => {
+    section.classList.add("visible");
+  });
 });
