@@ -1765,3 +1765,28 @@ body {
   }
 }
 ```
+```css
+/* Fix intro footer positioning on phones */
+.intro-screen .intro-foot {
+  display: block;
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  margin: 28px auto 0;
+  padding: 0 4px;
+  text-align: center;
+  line-height: 1.8;
+  white-space: normal;
+  overflow-wrap: normal;
+  word-break: normal;
+  box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+  .intro-screen .intro-foot {
+    font-size: 0.58rem;
+    letter-spacing: 0.08em;
+    margin-top: 24px;
+  }
+}
+```
