@@ -1195,3 +1195,30 @@ em {
   background-position: center;
   background-repeat: no-repeat;
 }
+
+.our-photo-frame {
+  width: min(100%, 480px);
+  margin: 32px auto;
+  padding: 10px;
+  border: 1px solid rgba(203, 164, 255, 0.65);
+  border-radius: 18px;
+  background: linear-gradient(145deg, #241548, #100d27);
+  box-shadow: 0 0 35px rgba(151, 83, 255, 0.25);
+}
+
+.our-photo {
+  display: block;
+  width: 100%;
+  max-height: 600px;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.photo-caption {
+  display: block;
+  padding: 15px 8px 8px;
+  color: #e7d6ff;
+  text-align: center;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+}
