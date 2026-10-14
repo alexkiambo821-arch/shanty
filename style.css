@@ -2143,3 +2143,10 @@ body {
     z-index: 1;
   }
 }
+
+/* Hide the decorative circles on phones only */
+@media screen and (max-width: 600px) {
+  #intro .intro-orbit {
+    display: none !important;
+  }
+}
