@@ -9,7 +9,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (enterButton && intro && museum) {
 
+
 enterButton.addEventListener("click", function () {
+  museum.classList.add("ready");
+  intro.classList.add("leaving");
+
+  const music = document.getElementById("background-music");
+
+  if (music) {
+    music.volume = 0.6;
+    music.play().catch(function () {});
+  }
+
+  setTimeout(function () {
+    intro.style.display = "none";
+  }, 1200);
+});
+
   museum.classList.add("ready");
   intro.classList.add("leaving");
 
