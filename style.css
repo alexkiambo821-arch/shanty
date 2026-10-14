@@ -1468,3 +1468,228 @@ body {
     animation: none !important;
   }
 }
+```css
+/* ==================================
+   MUSEUM OF MOMENTS — INTRO POLISH
+================================== */
+
+.intro-screen {
+  position: relative;
+  isolation: isolate;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 24px;
+  overflow: hidden;
+  text-align: center;
+  background:
+    radial-gradient(ellipse at 50% 35%,
+      rgba(112, 62, 190, 0.23), transparent 48%),
+    radial-gradient(ellipse at 15% 85%,
+      rgba(54, 48, 145, 0.18), transparent 40%),
+    #08091b;
+}
+
+.intro-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 680px;
+  margin: auto;
+  animation: introArrival 1.5s ease both;
+}
+
+.intro-screen .eyebrow {
+  color: #c7a7f5;
+  font-size: 0.68rem;
+  letter-spacing: 0.25em;
+  line-height: 1.8;
+}
+
+.intro-monogram {
+  margin: 32px 0 22px;
+  color: #f1e7ff;
+  font-family: Georgia, serif;
+  font-size: clamp(4rem, 13vw, 7rem);
+  font-weight: 400;
+  letter-spacing: -0.08em;
+  text-shadow: 0 0 35px rgba(170, 111, 255, 0.35);
+}
+
+.intro-monogram span {
+  color: #a77bff;
+  font-size: 0.65em;
+  font-style: italic;
+  padding: 0 0.08em;
+}
+
+.intro-dedication {
+  color: #bba6dc;
+  font-family: Georgia, serif;
+  font-size: 0.95rem;
+  font-style: italic;
+  line-height: 1.8;
+}
+
+.intro-screen h1 {
+  margin: 22px 0;
+  color: #f7f0ff;
+  font-family: Georgia, serif;
+  font-size: clamp(2.8rem, 9vw, 5.5rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+}
+
+.intro-screen h1 em {
+  color: #c6a1ff;
+  font-weight: 400;
+}
+
+.intro-caption {
+  color: #b8b2cb;
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+  line-height: 1.8;
+}
+
+.intro-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin: 30px auto;
+  color: #c7a0ff;
+}
+
+.intro-divider span {
+  width: 48px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #8d69c9);
+}
+
+.intro-divider span:last-child {
+  transform: rotate(180deg);
+}
+
+.intro-message {
+  margin: 0 auto 34px;
+  color: #d0c5e4;
+  font-family: Georgia, serif;
+  font-size: 1rem;
+  line-height: 2;
+}
+
+.enter-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  min-height: 54px;
+  padding: 0 25px;
+  border: 1px solid rgba(205, 171, 255, 0.65);
+  border-radius: 4px;
+  background: linear-gradient(
+    120deg,
+    rgba(118, 74, 184, 0.32),
+    rgba(43, 31, 89, 0.48)
+  );
+  color: #fff5ff;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  cursor: pointer;
+  box-shadow: 0 0 24px rgba(140, 85, 220, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease,
+              background 0.3s ease;
+}
+
+.enter-button:hover {
+  transform: translateY(-3px);
+  background: rgba(122, 77, 187, 0.38);
+  box-shadow: 0 0 35px rgba(169, 115, 255, 0.3);
+}
+
+.intro-foot {
+  display: block;
+  margin-top: 35px;
+  color: #82779e;
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  line-height: 1.8;
+}
+
+.intro-orbit {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  width: min(82vw, 560px);
+  aspect-ratio: 1;
+  border: 1px solid rgba(176, 132, 240, 0.12);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow:
+    0 0 70px rgba(120, 71, 205, 0.08),
+    inset 0 0 70px rgba(120, 71, 205, 0.05);
+  pointer-events: none;
+}
+
+.intro-orbit::before,
+.intro-orbit::after {
+  content: "";
+  position: absolute;
+  inset: 9%;
+  border: 1px solid rgba(176, 132, 240, 0.09);
+  border-radius: 50%;
+}
+
+.intro-orbit::after {
+  inset: 19%;
+}
+
+@keyframes introArrival {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 600px) {
+  .intro-screen {
+    padding: 35px 22px;
+  }
+
+  .intro-monogram {
+    margin: 26px 0 18px;
+  }
+
+  .intro-divider {
+    margin: 24px auto;
+  }
+
+  .intro-message {
+    font-size: 0.94rem;
+  }
+
+  .intro-foot {
+    font-size: 0.57rem;
+    letter-spacing: 0.13em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro-content {
+    animation: none;
+  }
+
+  .enter-button {
+    transition: none;
+  }
+}
+```
