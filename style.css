@@ -1297,3 +1297,13 @@ body {
     transition: none;
   }
 }
+
+/* Make the museum sparkles visible above the background */
+.museum-sparkle {
+  display: block !important;
+  position: fixed !important;
+  z-index: 9999 !important;
+  pointer-events: none !important;
+  color: #e8caff !important;
+  text-shadow: 0 0 12px #b879ff, 0 0 24px #8b5cf6;
+}
