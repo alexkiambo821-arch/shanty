@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       setTimeout(() => {
         intro.style.display = "none";
-      }, 1200);
+      }, 500);
     };
   }
 
