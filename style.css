@@ -664,7 +664,7 @@ em {
 .image-one {
   background-image:
     linear-gradient(180deg, transparent 50%, rgba(6, 8, 20, .5)),
-    url("photo%201.jpeg"),
+    url("photo1.jpeg"),
     radial-gradient(ellipse at 50% 40%, #63519a, #202344 60%, #111329);
 }
 
