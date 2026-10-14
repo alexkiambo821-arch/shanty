@@ -1307,3 +1307,95 @@ body {
   color: #e8caff !important;
   text-shadow: 0 0 12px #b879ff, 0 0 24px #8b5cf6;
 }
+
+/* Portrait-first layout for phones */
+@media screen and (max-width: 600px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .site-shell {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  main,
+  section {
+    max-width: 100%;
+  }
+
+  /* Comfortable vertical spacing */
+  section {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  /* Stack memories vertically */
+  .memory-grid,
+  .memory-gallery,
+  .archive-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 22px;
+    width: 100%;
+  }
+
+  .memory-card {
+    width: 100%;
+    min-width: 0;
+  }
+
+  /* Taller photo windows */
+  .memory-image {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+  }
+
+  /* Portrait-friendly final couple photo */
+  .our-photo-frame {
+    width: 100%;
+    max-width: 360px;
+    margin: 28px auto;
+    box-sizing: border-box;
+  }
+
+  .our-photo {
+    width: 100%;
+    height: auto;
+    max-height: 70vh;
+    object-fit: contain;
+  }
+
+  /* Make headings fit narrow screens */
+  h1 {
+    font-size: clamp(2.4rem, 11vw, 4rem);
+    line-height: 1.05;
+    overflow-wrap: break-word;
+  }
+
+  h2 {
+    font-size: clamp(1.8rem, 8vw, 2.8rem);
+    line-height: 1.15;
+  }
+
+  p {
+    line-height: 1.8;
+  }
+
+  /* Keep the dating timer readable */
+  .timer,
+  .timer-grid,
+  .countdown {
+    gap: 10px;
+  }
+
+  /* Comfortable tap targets */
+  button {
+    min-height: 44px;
+  }
+}
