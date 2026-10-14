@@ -1,1 +1,129 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080b24">
+  <meta name="description" content="A magical museum of memories made for Shirleen.">
+  <title>Museum of Moments | Shirleen 💜</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="stars" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <a href="#home" class="brand">✦ Museum of Moments</a>
+    <button id="music-toggle" class="music-button" type="button"
+      aria-pressed="false">
+      ♫ Play our music
+    </button>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <p class="eyebrow">A LITTLE UNIVERSE MADE FOR YOU</p>
+      <h1>For <span>Shirleen</span> 💜</h1>
+      <p class="hero-text">
+        Some moments pass. Some become part of us.
+        This little museum holds the memories I never want to lose.
+      </p>
+      <a href="#memories" class="explore-button">Enter our museum ✨</a>
+      <div class="floating-heart" aria-hidden="true">♡</div>
+    </section>
+
+    <section id="our-time" class="timer-section">
+      <p class="eyebrow">EVER SINCE 19 APRIL 2026</p>
+      <h2>Our story, still unfolding</h2>
+      <p class="section-intro">
+        Every second adds another little piece to our story.
+      </p>
+
+      <div class="timer" aria-label="Time since our special date">
+        <div class="time-card">
+          <span id="days">000</span>
+          <small>Days</small>
+        </div>
+        <div class="time-card">
+          <span id="hours">00</span>
+          <small>Hours</small>
+        </div>
+        <div class="time-card">
+          <span id="minutes">00</span>
+          <small>Minutes</small>
+        </div>
+        <div class="time-card">
+          <span id="seconds">00</span>
+          <small>Seconds</small>
+        </div>
+      </div>
+    </section>
+
+    <section id="memories" class="memories-section">
+      <p class="eyebrow">CHAPTERS OF US</p>
+      <h2>The Memory Gallery</h2>
+      <p class="section-intro">
+        Little moments, big feelings, and memories worth keeping.
+      </p>
+
+      <div class="memory-grid">
+        <article class="memory-card">
+          <div class="memory-photo photo-one">
+            <span>✧ A beautiful beginning ✧</span>
+          </div>
+          <div class="memory-copy">
+            <h3>The Beginning</h3>
+            <p>Every beautiful story has a moment when everything starts to feel different.</p>
+          </div>
+        </article>
+
+        <article class="memory-card">
+          <div class="memory-photo photo-two">
+            <span>☾ A moment to remember ☾</span>
+          </div>
+          <div class="memory-copy">
+            <h3>Little Things</h3>
+            <p>The smallest moments can become the memories we treasure the most.</p>
+          </div>
+        </article>
+
+        <article class="memory-card">
+          <div class="memory-photo photo-three">
+            <span>♡ My favourite memories ♡</span>
+          </div>
+          <div class="memory-copy">
+            <h3>To Be Continued</h3>
+            <p>This gallery isn't finished. There are still so many memories left to make.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="letter-section">
+      <div class="letter">
+        <span class="letter-icon">💌</span>
+        <p class="eyebrow">A NOTE JUST FOR YOU</p>
+        <h2>Dear Shirleen,</h2>
+        <p>
+          If memories were stars, I'd never run out of reasons to look at the sky.
+          Thank you for being part of this story. May we keep finding little
+          moments that make life feel magical.
+        </p>
+        <p class="signature">With love, always ✨</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Made with ♡ for Shirleen</p>
+    <p class="footer-small">Our story lives in the little things.</p>
+  </footer>
+
+  <audio id="background-music" loop preload="none">
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
