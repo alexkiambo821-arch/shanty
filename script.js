@@ -8,9 +8,31 @@ document.addEventListener("DOMContentLoaded", function () {
   const enterButton = get("enter-museum");
 
   if (enterButton && intro && museum) {
-    enterButton.addEventListener("click", function () {
-      museum.classList.add("ready");
-      intro.classList.add("leaving");
+
+enterButton.addEventListener("click", function () {
+  museum.classList.add("ready");
+  intro.classList.add("leaving");
+
+  const music = document.getElementById("background-music");
+
+  if (music) {
+    music.volume = 0.6;
+    music.play().catch(function () {
+      console.log("Music needs another tap to start.");
+    });
+
+    const musicToggle = document.getElementById("music-toggle");
+    if (musicToggle) {
+      musicToggle.textContent = "♫ Music On";
+      musicToggle.setAttribute("aria-pressed", "true");
+    }
+  }
+
+  setTimeout(function () {
+    intro.style.display = "none";
+  }, 1200);
+});
+
 
       setTimeout(function () {
         intro.style.display = "none";
