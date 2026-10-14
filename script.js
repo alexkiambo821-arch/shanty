@@ -1,4 +1,3 @@
-
 const intro = document.getElementById("intro");
 const museum = document.getElementById("museum");
 const enterButton = document.getElementById("enter-museum");
