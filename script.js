@@ -106,3 +106,21 @@ document.addEventListener("DOMContentLoaded", function () {
     section.classList.add("visible");
   });
 });
+
+(function createMuseumSparkles() {
+  const symbols = ["✦", "✧", "⋆", "·"];
+
+  for (let i = 0; i < 18; i++) {
+    const sparkle = document.createElement("span");
+
+    sparkle.className = "museum-sparkle";
+    sparkle.textContent = symbols[i % symbols.length];
+    sparkle.style.left = (Math.random() * 100) + "vw";
+    sparkle.style.top = (20 + Math.random() * 75) + "vh";
+    sparkle.style.animationDelay = (Math.random() * 8) + "s";
+    sparkle.style.animationDuration = (6 + Math.random() * 6) + "s";
+    sparkle.style.fontSize = (10 + Math.random() * 12) + "px";
+
+    document.body.appendChild(sparkle);
+  }
+})();
