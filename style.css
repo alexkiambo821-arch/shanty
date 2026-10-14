@@ -1693,3 +1693,75 @@ body {
   }
 }
 ```
+```css
+/* INTRO LAYOUT FIX */
+.intro-screen {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.intro-screen *,
+.intro-screen *::before,
+.intro-screen *::after {
+  box-sizing: border-box;
+}
+
+.intro-content {
+  width: 100%;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.intro-screen .eyebrow,
+.intro-screen .intro-dedication,
+.intro-screen h1,
+.intro-screen .intro-caption,
+.intro-screen .intro-message,
+.intro-screen .intro-foot {
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+.intro-screen h1 {
+  white-space: normal;
+}
+
+.intro-screen .enter-button {
+  max-width: 100%;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 600px) {
+  .intro-screen {
+    min-height: 100vh;
+    min-height: 100svh;
+    padding: 32px 22px;
+  }
+
+  .intro-content {
+    padding: 12px 0;
+  }
+
+  .intro-screen .eyebrow {
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+  }
+
+  .intro-screen h1 {
+    font-size: clamp(2.3rem, 10vw, 3.5rem);
+    line-height: 1.15;
+  }
+
+  .intro-screen .intro-message {
+    font-size: 0.92rem;
+    line-height: 1.8;
+  }
+
+  .intro-screen .intro-foot {
+    font-size: 0.56rem;
+    letter-spacing: 0.1em;
+  }
+}
+```
